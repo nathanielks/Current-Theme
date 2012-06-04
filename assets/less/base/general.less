@@ -1,0 +1,184 @@
+.fleft,.float_left,.alignleft {
+float:left;
+}
+
+.fright,.float_right,.alignright {
+float:right;
+}
+
+img{
+	display: block;
+}
+
+/* Clearing floats without extra markup
+   Based on How To Clear Floats Without Structural Markup by PiE
+   [http://www.positioniseverything.net/easyclearing.html] */
+
+.content:after, .clearfix:after, .container:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+  overflow:hidden;
+}
+.content, .clearfix, .container {display: block;}
+
+/* Regular clearing
+   apply to column that should drop below previous ones. */
+
+.clear {
+clear:both;
+display:block;
+float: none;
+}
+
+.clear-left,.clear_left {
+clear:left;
+}
+
+.clear-right,.clear_right {
+clear:right;
+}
+
+.hide {
+display:none;
+}
+
+.block {
+display:block !important;
+}
+
+.inline {
+display:inline !important;
+}
+
+.align_right {
+text-align:right;
+}
+
+.align_left {
+text-align:left;
+}
+
+.align_center, .aligncenter {
+text-align:center;
+}
+
+.mlrauto{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.aligncenter{
+	.mlrauto;
+}
+
+.align_justify, .justify {
+text-align:justify;
+}
+
+
+nav ul li{ display: inline; a span{display:none;}} 
+
+.no-bullets {
+list-style:none;
+}
+
+::selection {
+background:#525252;
+}
+
+::-moz-selection {
+background:#525252;
+color:#fff;
+}
+
+p {
+margin:0 0 1.52em;
+}
+
+p img.left {
+float:left;
+margin:1.52em 1.52em 1.52em 0;
+padding:0;
+}
+
+p img.right {
+float:right;
+margin:1.52em 0 1.52em 1.52em;
+}
+
+sup,sub {
+line-height:0;
+}
+
+abbr,acronym {
+border-bottom:1px dashed #ccc;
+}
+
+address {
+font-style:italic;
+margin:0 0 1.5em;
+}
+
+del {
+color:#666;
+}
+
+pre,code,tt {
+font:1em 'andale mono', 'lucida console', monospace;
+line-height:1.5;
+display:block;
+}
+
+code {
+background-color:#eee;
+display:inline;
+line-height:1.1em;
+padding:0 2px 1px;
+}
+
+pre {
+white-space:pre;
+margin:1.5em 0;
+}
+
+.bold,strong,dfn {
+font-weight:600;
+}
+
+.italic,em,dfn {
+font-style:italic;
+}
+
+.small{font-size:14px;}
+
+.no{
+	&.mbottom{
+		margin-bottom: 0;
+	}
+}
+
+/*POSITIONING*/
+.pos.rel{
+	position: relative;
+}
+.pos.abs{
+	position: absolute;
+}
+
+/*
+ * Default Wordpress Styles
+ * Many thanks to Chris Coyier
+ * http://digwp.com/2010/05/default-wordpress-css-styles-hooks/
+ */
+.alignleft, img.alignleft { margin-right: 1.5em; display: inline; float: left; }
+.alignright, img.alignright { margin-left: 1.5em; display: inline; float: right; }
+.alignnone, img.alignnone { /* not sure about this one */ }
+.wp-caption { margin-bottom: 1.5em; text-align: center; padding-top: 5px; }
+.wp-caption img { border: 0 none; padding: 0; margin: 0; }
+.wp-caption p.wp-caption-text { line-height: 1.5; font-size: 10px; margin: 0; }
+.wp-smiley { margin: 0 !important; max-height: 1em; }
+blockquote.left { margin-right: 20px; text-align: right; margin-left: 0; width: 33%; float: left; }
+blockquote.right { margin-left: 20px; text-align: left; margin-right: 0; width: 33%; float: right; }

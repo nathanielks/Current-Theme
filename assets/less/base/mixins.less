@@ -1,0 +1,61 @@
+@horizontal_offset: 2px;
+@vertical_offset: 2px;
+@blur_radius: 0px;
+@shadow_color: rgba( 0, 0, 0, .3);
+
+.text-shadow(@shadow: 2px 2px 0 rgba(0,0,0, .3)){
+  -moz-text-shadow: @shadow;
+  -webkit-text-shadow: @shadow;
+  -o-text-shadow: @shadow;
+  text-shadow: @shadow;
+}
+
+.bg(@bg, @ext){
+background: url(../img/@bg.@ext) no-repeat top left;
+}
+
+.bs(@l, @r, @s, @c){
+  -webkit-box-shadow: @lpx @rpx @spx @c; 
+     -moz-box-shadow: @lpx @rpx @spx @c; 
+          box-shadow: @lpx @rpx @spx @c; 
+}
+.br(@s){
+
+  -webkit-border-radius: @spx; 
+     -moz-border-radius: @spx; 
+          border-radius: @spx; 
+
+  -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+} 
+.sharp-edges(@radius, @c1, @c2, @c3, @c4, @c5, @c6, @c7, @c8){
+    background:
+	-moz-linear-gradient(45deg,  @c1 @radius, @c2 @radius),
+	-moz-linear-gradient(135deg, @c3 @radius, @c4 @radius),
+	-moz-linear-gradient(225deg, @c5 @radius, @c6 @radius),
+	-moz-linear-gradient(315deg, @c7 @radius, @c8 @radius);
+    background:
+	-o-linear-gradient(45deg,  @c1 @radius, @c2 @radius),
+	-o-linear-gradient(135deg, @c3 @radius, @c4 @radius),
+	-o-linear-gradient(225deg, @c5 @radius, @c6 @radius),
+	-o-linear-gradient(315deg, @c7 @radius, @c8 @radius);
+    background:
+	-webkit-linear-gradient(45deg,  @c1 @radius, @c2 @radius),
+	-webkit-linear-gradient(135deg, @c3 @radius, @c4 @radius),
+	-webkit-linear-gradient(225deg, @c5 @radius, @c6 @radius),
+	-webkit-linear-gradient(315deg, @c7 @radius, @c8 @radius);		
+    background-position: bottom left, bottom right, top right, top left;
+    -moz-background-size: 50% 50%;
+    -webkit-background-size: 50% 50%;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.border-accent(@color: #ccc, @percent: 10%){
+	border-top: 1px solid lighten(@color, @percent);
+	border-bottom: 1px solid darken(@color, @percent);
+}
+.multi-box-shadow(@s1: 0 1px 3px rgba(0,0,0,.25), @s2: '', @s3: '', @s4: '' ) {
+  -webkit-box-shadow: @s1, @s2, @s3, @s4;
+     -moz-box-shadow: @s1, @s2, @s3, @s4;
+          box-shadow: @s1, @s2, @s3, @s4;
+}
