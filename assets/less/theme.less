@@ -3,836 +3,88 @@
    Base
    ========================================================================== */
 
-body{
-	background: url('../img/bg-content.jpg') top center repeat;
-	color: @bodyColor;
-}
-.pad{
-	padding: 0 1em; /* 16 / 16 */
-}
-.indent p{
-	text-indent: 20px;
-}
-.container-pad{
-	width: 940px;
-	padding: 0 30px;
-}
-.mbottom{
-	.clearfix();
-	margin-bottom: 20px;
-}
-.mleft{
-	margin-left: 20px;
-}
-.mbottom-small{
-	margin-bottom: 10px;
-}
-.mbottom-large{
-	margin-bottom: 40px;
-}
 
-
-#main{
-	.clearfix();
-}
-
-.center-list, .page-numbers{
-	text-align: center;
-	list-style: none;
-	margin-left: 0;
-	margin-right: 0;
-	li{
-		margin-left: 20px;
-		display: inline-block;
-		a{
-			display: inline-block;
-			}
-	}
-}
-
-.text-center{
-	text-align:center;
-}
-
-h1{
-	font-size:3em;
-	margin-bottom:1em;
-}
-
-h2{
-	font-size: 2.5em;
-	margin-bottom: .5em;
-	line-height: 1.25em;
-}
-h3{
-	font-size: 2em;
-	margin-bottom: .5em;
-}
-h4{
-	font-size: 1.5em;
-	margin-bottom: .5em;
-}
-
-p{
-	font-size: 15px;
-	margin-bottom: 1em;
-}
-
-.black{
-	&.color{
-		color: black;
-	}
-}
-.white{
-	color: #fff;
-	&:active, &:hover{
-		color: white;
-	}
-}
-.dark-grey{
-	&.bg{
-		background: @darkGrey;
-		#gradient > .vertical(@transDarkGrey, darken(@transDarkGrey,8%));
-	}
-	&.tshadow{
-		.text-shadow(@darkGreyShadow);
-	}
-	&.color{
-		color: @darkGrey;
-	}
-	&.bshadow{
-		.box-shadow(0 0 8px 2px @darkGrey);
-		}
-}
-.light-grey{
-	&.bg{
-		background: @lightGrey;
-		#gradient > .vertical(@transLightGrey, darken(@transLightGrey,8%));
-	}
-	&.tshadow{
-		.text-shadow(@lightGreyShadow);
-	}
-	&.color{
-		color: @lightGrey;
-	}
-	&.bshadow{
-		.box-shadow(0 0 8px 2px rgba(0,0,0,.1));
-		}
-}
-.orange{
-	&.bg{
-		background: @lightOrange;
-		#gradient > .vertical(@transLightOrange, darken(@transLightOrange,8%));
-	}
-	&.tshadow{
-		.text-shadow(@brightOrangeShadow);
-	}
-	&.bshadow{
-		.box-shadow(0 0 8px 2px @brightOrange);
-		}
-}
-.light-blue{
-	&.bg{
-		background: @lightBlue;
-		#gradient > .vertical(@transLightBlue, darken(@transLightBlue,8%));
-	}
-	&.tshadow{
-		.text-shadow(@lightBlueShadow);
-	}
-	&.color{
-		color: @lightBlue;
-	}
-	&.bshadow{
-		.box-shadow(0 0 8px 2px rgba(0,0,0,.1));
-		}
-}
-
-blockquote{
-	padding: 20px;
-	background: #fff9ed;
-	border: 1px solid #f1e9d9;
-	font-style: italic;
-	color: #473A34;
-	p:first-child{
-		margin-top: 0;
-	}
-	p{
-		margin: 2em auto 0;
-		}
-}
 
 /* =============================================================================
    Grid
    ========================================================================== */
 
 
-  // GRID & CONTAINERS
-  // -----------------
-  // Remove width from containers
-  .container {
-    width: auto;
-    /*padding: 0 20px;*/
-  }
-  // Fluid rows
-  .row-fluid {
-    width: 100%;
-  }
-  // Undo negative margin on rows
-  .row {
-    margin-left: 0;
-  }
-  // Make all columns even
-  [class*="span"]{
-    float: none;
-    display: block;
-    width: auto;
-    margin-left: 0;
-    &.aligncenter{
-	    .mlrauto;
-	    float: none;
-    }
-  }
-
-.full-width-row{
-	width: 1000px;
-	margin-left: -30px;
-	padding: 40px 0;
-	&.odd{
-		background: @lightTan;
-	}
-	.row{
-		margin-left: 10px;
-	}
-}
 
 /* =============================================================================
    Navbar
    ========================================================================== */
 
-.navbar{
-	display:block;
-	background: #000;
-	background: @menuColor;
-	#gradient > .vertical(@lightGrey, darken(@lightGrey, 5%));
-	.box-shadow(0 3/@em 3/@em rgba(0,0,0, .25));
-	.border-accent(@menuColor, 10%);
-	margin-bottom:6/@em;
-	.nav-collapse{
-		clear: left;
-		overflow: hidden;
-	}
-}
-
-
-a span.icon-bar{
-	visibility:visible;
-}
-
-.nav-spacer{
-	height: 30px;
-	width: 1px;
-	float: left;
-	display: block;
-}
-
-.primary{
-	padding:.5em 1em;
-	ul{
-		li{
-			.link;
-		}
-	}
-	a:link, a:visited{
-		font-size: 1.25em;
-	}
-}
-
-.secondary{
-	display:none;
-}
-
-.btn-collapse{
-	position: absolute;
-	top: 0;
-	right: 0;
-	z-index:10;
-
-	.btn-navbar{
-		display:block;
-		margin: .5em 1em 0 0;
-	}	
-}		
-
-.btn-orange {
-	.bebas;
-	.buttonBackground(lighten(@brightOrange, 15%), @brightOrange);
-	.text-shadow();
-	color:white;
-	&:link, &:visited{
-		color: white;
-	}
-	a:link, a:visited{
-		color: white;
-	}
-}
-
-#main .btn{
-	font-size: 18px;
-	}
-
-.link{
-	.bebas;
-	display:block;
-	text-align: left;
-	a:link, a:visited{
-		color:@darkGrey;
-	}
-	a:active, a:hover{
-		color:@brightOrange;
-	}
-
-	&.menu-home{
-		/*margin-top: 0;*/
-	}
-
-	&.menu-donate{
-		margin: 8/@em 0;
-	}
-}
-
-.wide {
-	width:200/@em;
-	margin: 0 auto;
-}
-
-.medium{
-	font-size: 1.25em;
-}
-.large{
-	font-size: 1.5em;
-	line-height: 1em;
-}
-.xlarge{
-	font-size: 2em;
-}
 
 
 /* =============================================================================
    Header
    ========================================================================== */
 
-#wrapper{
-	margin-top:55/@em;
-}
-
-#masthead {
-
-	h1{
-	padding-bottom:.25em;
-	margin-bottom:0;
-
-		img{
-			margin:0 auto;
-			display: block;
-		}
-
-		span{
-			height: 0;
-			display:block;
-		}
-	}
-}
-
-
-
-
-.cta-content {
-
-	p{
-		.bebas;
-		color: #fff;
-		/*.text-shadow(2/@em, 2/@em, darken(@lightOrange, 10%), 2/@em);*/
-		padding: .75em;
-		margin: 0;
-		font-size: 2em;
-		line-height: 1em;
-		/*.multi-box-shadow(0 0/@em 3/@em darken(@lightOrange), '', '', '');*/
-	}
-}
-
-.more{
-	color: white;
-	padding: 2/@em 8/@em 4/@em 8/@em;
-	background: @brightOrange;
-	background: @transBrightOrange;
-
-	&:active, &:hover{
-		background: lighten(@brightOrange, 5%);
-	}
-
-	a{
-		background: url(../img/arrow-white.png) no-repeat;
-		background-position: right center; 
-		padding-right: 14/@em;
-		padding-top: 2/@em;
-		display:inline;
-		font-size: 12/@em;
-		color: #fff;
-		line-height: 12/@em;
-	}
-}
-
-.more.bot.right{
-	bottom: 0;
-	right: 0;
-}
-
-.more-info-link{
-	margin:0;
-	text-align: center;
-	background-color: #fff;
-	display: inline-block;
-	padding: 0;
-	/*.box-shadow(0 0 8px 2px rgba(0,0,0, .25));*/
-	.border-radius(4px);
-	.bebas;
-	font-size: 1.5em;
-	a{
-		clip: auto;
-		overflow:hidden;
-		position:relative;
-		display: block;
-		/*border-left: 1/@em solid darken(@lightBlue, 5%);*/
-		/*border-right: 1/@em solid lighten(@lightBlue, 10%);*/
-	}
-
-	a:link, a:visited{
-		padding: 15px 15px 12px;
-		color: @darkGrey;
-	}
-	/*a:active, a:hover{*/
-		/*color: #fff;*/
-	/*}*/
-}
 
 
 /* =============================================================================
    Slider
    ========================================================================== */
-.flex-nav-container{
-	/*position: relative;*/
-}
 
-.flex-direction-nav{
-	list-style: none;
-	padding: 0;
 
-}
 
 /* =============================================================================
    Content
    ========================================================================== */
 
-.content{
-	border: 1/@em solid #e9dcc3;
-	background: #fff;
-	background: rgba(255,255,255,.9);
-	.border-radius(4px);
-}
 
-.footer-inner, .inner{
-	padding: 30px;
-	/*.inner{*/
-		/*padding: 20px;*/
-	/*}*/
-}
-.list-arrow{
-	list-style:image;
-	list-style-image: url('../img/arrow.png');
-}
 
 /* =============================================================================
    Primary Content
    ========================================================================== */
 
+
+
 /* =============================================================================
    Home Page
    ========================================================================== */
-.mission{
-	padding-top: 20px;
-	h1, h2{
-		text-align: center;
-		margin-bottom: 0;
-	}
-	h1{
-		margin-bottom: 40px;
-	}
-	p{
-		font-size: 18/@em;
-		text-align: center;
-		margin-bottom: 40px;
-		display: block;
-		
 
-	}
-}
 
-.facebook, .twitter{
-	.mbottom;
-}
+
 /* =============================================================================
    About Page
    ========================================================================== */
-.entry-content{
-	.founders{
-		img.media-thumb{
-			margin: 0;
-		}
-	}
-}
 
-/* =============================================================================
-   Five for Ten Page
-   ========================================================================== */
-
-.f4f-option{
-	.btn.btn-orange{
-		font-size: 1.5em;
-		padding: 10px 20px;
-	}
-	.featured-image{
-		margin-top: 50px;
-	}	
-	.copy{
-		width: 340px;
-		.mlrauto;
-	}
-}
 
 
 /* =============================================================================
    Sidebar
    ========================================================================== */
 
-aside .content {
 
-	ul{
-		.list-arrow;
-	}
-
-	.tweet{
-		p {
-			margin-bottom:.2em;
-		}
-		span{
-			font-size:.85em;
-		}
-	}
-}
-
-.widget{
-	margin-bottom: 2em;
-	float: left;
-	display:block;
-	width: 100%;
-	font-size: 1em;
-	ul{
-
-		li{
-			margin-bottom: .75em;
-		}
-	}
-}
-
-.links{ 
-	ul{
-		margin:0 0 0 1em;
-		.list-arrow;
-		li{ 
-			margin-bottom:12/@em;
-			display:list-item;
-		}
-	}
-}
-
-.headline{
-	.bebas;
-	font-size: 1.5em;
-	&.large{
-		font-size: 1.25em;
-	}
-	&.xlarge{
-		font-size: 2em;
-	}
-	&.xxlarge{
-		font-size: 5em;
-		line-height: 1em;
-	}
-}
-
-.posts{
-	ul{
-		li{
-		}
-		li:first-child{
-			.list-arrow;
-		}
-	}
-}
-
-.media-thumb{
-	position:relative;
-	border: 1px solid #d0b684;
-	background:#E8DCC4;
-	padding:6/@em;
-	display: inline-block;
-	.border-radius(4px);
-	&.small{
-	padding:4/@em;
-	}
-	a{
-		display:block;
-		.bebas;
-		margin: 0 auto;
-		height:127/@em;
-		width:100%;
-		p{
-			background: #000;
-			background:@transBlack;
-			position:absolute;
-			bottom:6/@em;
-			right:6/@em;
-			padding:14/@em 10/@em 10/@em;
-			margin:0;
-			text-align: right;
-			line-height:1em;
-			font-size:1em;
-
-			span{
-				visibility:visible;
-				float:right;
-			}
-
-		}
-
-	}
-
-	.arrow{
-		margin: 2px 0 0 8px;
-
-		img{
-			display: inline;
-		}	
-
-	}
-
-	.title{
-		width: 185px;
-		font-size: 1.125em;
-		overflow: hidden;
-		white-space: nowrap;
-		text-overflow: ellipsis;
-	}
-	
-	a:link, a:visited{
-		color:white;
-		font-style:normal;
-	}
-
-	a:active, a:hover {
-		color:@brightOrange;
-	}
-}
-
-.recent-post{
-	width: 204px;
-	}
-.logos{
-
-	div{
-		width:183px;
-		margin: 0 auto;
-	}
-}
 
 /* =============================================================================
    Posts
    ========================================================================== */
-.blog .post{
-	margin: 40px auto;
-	float: none;
-	}
-
-hr, .hr{
-	background: url('../img/filligree.png') no-repeat 50% 0;
-	width: 85%;
-	height: 46px;
-	border: 0;
-	margin: 0 auto 40px;
-	/*.clearfix();*/
-	}
-hr{
-	margin:40px auto 60px;
-	}
-
-.hr.small{
-	background: url('../img/filligree-small.png') no-repeat 50% 0;
-	width: 200px;
-	height: 14px;
-	border: 0;
-	margin: 15px auto;
-	&.mbottom-large{
-		margin-bottom: 40px;
-		}
-}
-
-.entry-meta{
-	text-align: center;
-	color: @lightGrey;
-	.italic;
-	font-size: .8em;
-	margin-bottom: 3em;
-	display: block;
-}
-
-.comments-link{
-	color: @lightGrey;
-}
 
 
-.entry-title{
-	font-size: 3.5em;
-	text-align: center;
-	margin: .25em auto 0px;
-	line-height: 1em;
-	a:link, a:visited{
-		color: @darkGrey;
-	}
-	/*a:active, a:hover{*/
-		/*color: @brightOrange;*/
-	/*}*/
-}
-.page .entry-title{
-	margin-bottom: 20px;
-}
-.entry-content{
-	line-height: 2em;
-	text-align: left;
-	p{
-		line-height: 2em;
-	}
-}
-
-.read-more{
-	margin-top: 1em;
-	text-align: center;
-	/*.lightGreyLinks;*/
-	font-size: .85em;
-	color: lighten(@lightGrey, 15%);
-	.italic;
-
-}
 
 /* =============================================================================
    Post Comments
    ========================================================================== */
 
-.comment-author{
-	font-size: 1.5em;
-}
-input:focus,
-textarea:focus {
-  border-color: @lightOrange;
-  @shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px @lightOrange;
-  .box-shadow(@shadow);
-  outline: 0;
-  outline: thin dotted \9; /* IE6-8 */
-}
+
 
 /* =============================================================================
    Widgets
    ========================================================================== */
 
 
+
 /* =============================================================================
    Footer
    ========================================================================== */
 
-#footerBottom{
-	padding-top: 20px;
-	/*a:link, a:hover{*/
-		/*color: @footerLinkColor;		*/
-	/*}*/
-}
 
-.feature{
-	padding-top:40px;
-	font-size: 1.25em;
-	line-height: 1.75em;
-}
-.footer-nav{
-	.bebas;
-	font-size: 1.125em;
-	margin: 0 auto 10px;
-}
-.copyright{
-	margin: 1em 0;
-	ul{
-		list-style:none;
-		.bebas;
-		margin:0 auto;
-		/*width: 714px;*/
-		li{
-			color: @lightGrey;
-			margin-bottom:.75em;
-			font-size:1em;
-			text-align:center;
-		}
-	}
-}
-
-/* =============================================================================
-   Leaflet
-   ========================================================================== */
-
-.leaflet-popup-close-button {
-	background: white url(../img/popup-close.png);
-}
-
-.leaflet-control-zoom-in {
-	background-image: url(../img/zoom-in.png);
-}
-
-.leaflet-control-zoom-out {
-	background-image: url(../img/zoom-out.png);
-}
-
-/* =============================================================================
-   Tooltips
-   ========================================================================== */
-
-.tooltip-item{
-	display: block;
-}
-
-.tooltip-inner {
-	.bebas;
-	font-size: 24/@em;
-}
 
 /* =============================================================================
    Forms
-   ========================================================================== */
-
-#prayer-team input[type="text"]{
-	.georgia;
-	.italic;
-	font-size: .85em;
-}
-
-/* =============================================================================
-   WordPress Generated Classes
-   See: http://codex.wordpress.org/CSS#WordPress_Generated_Classes
    ========================================================================== */
 
 
@@ -844,5 +96,5 @@ textarea:focus {
 /*@import 'media/240';*/
 /*@import 'media/480';*/
 /*@import 'media/600';*/
-@import 'media/912';
-@import 'media/1888';
+/*@import 'media/912';*/
+/*@import 'media/1888';*/

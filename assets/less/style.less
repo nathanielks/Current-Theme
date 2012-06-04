@@ -1,55 +1,7 @@
 //VARIABLES
-@bodyColor: #333;
-@lightgrey: #60605F;
-@nav_border: 1/@em solid #8E9090; 
-
-@lightOrange: #de8d50;
-@transLightOrange: rgba(222,140,80, .75);
-
-@brightOrange: #e56c11;
-@transBrightOrange: rgba(229, 108, 17, .75);
-@brightOrangeShadow: 2px 2px 2px darken(@transBrightOrange, 10%);
-
-@lightGrey: #6d6d67;
-@transLightGrey: rgba(109,109,103,.75);
-@lightGreyShadow: 2px 2px 2px darken(@transLightGrey, 20%);
-
-@darkGrey: #3b3935; 
-@transDarkGrey: rgba(51,51,51,.75); 
-@darkGreyShadow: 2px 2px 2px darken(@transDarkGrey, 10%);
-
-@menuColor: rgb(107,109,103);
-@transBlack: rgba(0,0,0, .55);
-
-@lightBlue: #8bc0cc;
-@transLightBlue: rgba(139,192,204, .85);
-@lightBlueShadow: 2px 2px 2px darken(@transLightBlue, 40%);
-
-@tan: #e9dcc3;
-@lightTan: #fffaf0;
-
-@footerHeadlineColor: #000;
-@footerLinkColor: #ccc;
-
-.darkGreyLinks{
-	a:link, a:visited{
-		color: @darkGrey;
-	}
-	a:active, a:hover{
-		color: lighten(@darkGrey, 10%);
-	}
-}
-.lightGreyLinks{
-	a:link, a:visited{
-		color: @lightGrey;
-	}
-	a:active, a:hover{
-		color: lighten(@lightGrey, 10%);
-	}
-}
 
 //IMPORTS
 @import 'bootstrap/bootstrap';
 @import 'base/base';
-@import 'app';
-@import 'theme-specific';
+@import 'theme-mixins';
+@import 'theme';
