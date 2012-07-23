@@ -21,7 +21,7 @@
  */
 require_once dirname( __FILE__ ) . '/class-tgm-plugin-activation.php';
 
-add_action( 'tgmpa_register', 'designa_studio_register_required_plugins' );
+add_action( 'tgmpa_register', 'current_register_required_plugins' );
 /**
  * Register the required plugins for this theme.
  *
@@ -34,7 +34,7 @@ add_action( 'tgmpa_register', 'designa_studio_register_required_plugins' );
  * This function is hooked into tgmpa_init, which is fired within the
  * TGM_Plugin_Activation class constructor.
  */
-function designa_studio_register_required_plugins() {
+function current_register_required_plugins() {
 
 	$plugins = array(
 
@@ -52,7 +52,7 @@ function designa_studio_register_required_plugins() {
 	);
 
 	// Change this to your theme text domain, used for internationalising strings
-	$theme_text_domain = 'designa';
+	$theme_text_domain = 'current';
 
 	/**
 	 * Array of configuration settings. Amend each line as needed.
