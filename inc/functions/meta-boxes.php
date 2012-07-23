@@ -6,7 +6,7 @@
  * Wse underscore (_) at the beginning to make keys hidden
  * You also can make prefix empty to disable it
  */
-$prefix = 'hu_';
+$prefix = 'cur_';
 global $meta_boxes;
 $meta_boxes = array();
 
@@ -87,14 +87,14 @@ $meta_boxes[] = array(
 );
 // Hook to 'admin_init' to make sure the meta box class is loaded before (in case using the meta box class in another plugin)
 // This is also helpful for some conditionals like checking page template, categories, etc.
-add_action( 'admin_init', 'ds_register_meta_boxes' );
+add_action( 'admin_init', 'cur_register_meta_boxes' );
 
 /**
  * Register meta boxes
  *
  * @return void
  */
-function ds_register_meta_boxes()
+function cur_register_meta_boxes()
 {
 	global $meta_boxes;
 

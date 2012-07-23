@@ -10,7 +10,7 @@ function register_theme_libs() {
 		wp_enqueue_script('jquery', DS_ASSETS . 'js/libs/jquery-1.7.2.min.js', array(), NULL, true);
 
 		global $post;
-		$slides = explode(' ', get_post_meta($post->ID,'hu_slides', TRUE));
+		$slides = explode(' ', get_post_meta($post->ID,'cur_slides', TRUE));
 		$slides_count = count($slides);
 		if ( $slides_count > 1 ){
 			wp_enqueue_script('flexslider', DS_ASSETS . 'js/jquery.flexslider-min.js', array('jquery'), NULL, true);

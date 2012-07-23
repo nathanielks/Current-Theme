@@ -28,7 +28,7 @@ function optionsframework_option_name() {
 
 function optionsframework_options() {
 	
-	$ds_col = 'ds_home_column_';
+	$cur_col = 'cur_home_column_';
 	// Test data
 	$test_array = array("one" => "One","two" => "Two","three" => "Three","four" => "Four","five" => "Five");
 	
@@ -72,7 +72,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"name" => "Logo",
 		"desc" => "Paste the URL to your logo, or upload it here.",
-		"id" => "ds_logo",
+		"id" => "cur_logo",
 		"std" => get_template_directory_uri()."/assets/img/logo.png",
 		"type" => "upload",
 		);
@@ -80,7 +80,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"name" => "Theme Color",
 		"desc" => "",
-		"id" => "ds_theme_color",
+		"id" => "cur_theme_color",
 		"std" => "#37DAC1",
 		"type" => "color",
 		);
@@ -89,7 +89,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"name" => "Favicon with .ico extension",
 		"desc" => "Paste the URL to your favicon with the .ico extension, or upload it here.",
-		"id" => "ds_favicon_ico",
+		"id" => "cur_favicon_ico",
 		"std" => "",
 		"type" => "upload",
 		);
@@ -97,7 +97,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"name" => "Favicon with .png extension",
 		"desc" => "Paste the URL to your favicon with the .png extension, or upload it here.",
-		"id" => "ds_favicon_png",
+		"id" => "cur_favicon_png",
 		"std" => "",
 		"type" => "upload",
 		);
@@ -105,7 +105,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"name" => "404 error message",
 		"desc" => "Enter a message to display on your 404 (page not found) error pages.",
-		"id" => "ds_404",
+		"id" => "cur_404",
 		"std" => "Apologies, but the page you requested could not be found. Perhaps searching will help.",
 		"type" => "textarea",
 		);
@@ -113,7 +113,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"name" => "Footer copyright text",
 		"desc" => "Enter the text to be used in the footer copyright region",
-		"id" => "ds_copyright",
+		"id" => "cur_copyright",
 		"std" => "Copyright 2012 - ".get_bloginfo('name'),
 		"type" => "text",
 		);
@@ -128,7 +128,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"name" => "Headline",
 		"desc" => "The headline you wish to display.",
-		"id" => "ds_headline",				
+		"id" => "cur_headline",				
 		"std" => "Web design\rWeb Development\rGraphic Design",
 		"type" => "textarea",
 		);
@@ -136,7 +136,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"name" => "Description",
 		"desc" => "Write out whatever you'd like to say about yourself on the homepage.",
-		"id" => "ds_site_description",				
+		"id" => "cur_site_description",				
 		"std" => "",
 		"type" => "textarea",
 		);
@@ -144,7 +144,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"name" => "See more info link",
 		"desc" => "Select which page you would like to point people to for the link above the image slider.",
-		"id" => "ds_info_link",				
+		"id" => "cur_info_link",				
 		"type" => "select",
 		"options" => $options_pages,
 		);
@@ -152,7 +152,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"name" => "See more info link text",
 		"desc" => "Input the text you would like to see displayed for the link.",
-		"id" => "ds_info_text",				
+		"id" => "cur_info_text",				
 		"std" => "see more info",
 		"type" => "text",
 		);
@@ -160,7 +160,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"name" => "See more services link",
 		"desc" => "Select which page you would like to point people to for the link above the columns.",
-		"id" => "ds_services_link",				
+		"id" => "cur_services_link",				
 		"type" => "select",
 		"options" => $options_pages,
 		);
@@ -168,7 +168,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"name" => "See more services link text",
 		"desc" => "Input the text you would like to see displayed for the link.",
-		"id" => "ds_services_text",				
+		"id" => "cur_services_text",				
 		"std" => "see more services",
 		"type" => "text",
 		);
@@ -176,7 +176,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"name" => "See more works link",
 		"desc" => "Select which page you would like to point people to for the link above the work thumbnails.",
-		"id" => "ds_works_link",				
+		"id" => "cur_works_link",				
 		"type" => "select",
 		"options" => $options_pages,
 		);
@@ -184,7 +184,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"name" => "See more services link text",
 		"desc" => "Input the text you would like to see displayed for the link.",
-		"id" => "ds_works_text",				
+		"id" => "cur_works_text",				
 		"std" => "see more works",
 		"type" => "text",
 		);
@@ -192,7 +192,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"name" => "Display Services?",
 		"desc" => "Would you like to display a section with up to 4 columns? Check if so.",
-		"id" => "ds_display_services",				
+		"id" => "cur_display_services",				
 		"std" => "1",
 		"type" => "checkbox",
 		);
@@ -200,17 +200,17 @@ function optionsframework_options() {
 	$options[] = array(
 		"name" => "Choose Columns to Display",
 		"desc" => "Select which columns you'd like to display.",
-		"id" => 'ds_display_columns',				
+		"id" => 'cur_display_columns',				
 		"std" => array("1" => "1", "2" => "1", "3" => "1", "4" => "1", ),
 		"type" => "multicheck",
 		"options" => array("1" => "Column 1", "2" => "Column 2", "3" => "Column 3", "4" => "Column 4", ),
-		"data" => array("1" => "section-ds_home_column_1_headline, #section-ds_home_column_1_text", "2" => "section-ds_home_column_2_headline, #section-ds_home_column_2_text", "3" => "section-ds_home_column_3_headline, #section-ds_home_column_3_text", "4" => "section-ds_home_column_4_headline, #section-ds_home_column_4_text", ),
+		"data" => array("1" => "section-cur_home_column_1_headline, #section-cur_home_column_1_text", "2" => "section-cur_home_column_2_headline, #section-cur_home_column_2_text", "3" => "section-cur_home_column_3_headline, #section-cur_home_column_3_text", "4" => "section-cur_home_column_4_headline, #section-cur_home_column_4_text", ),
 		);
 
 	$options[] = array(
 		"name" => "Column 1",
 		"desc" => "Headline for the first column on the Home page.",
-		"id" => $ds_col."1_headline",				
+		"id" => $cur_col."1_headline",				
 		"std" => "Web Design",
 		"type" => "text",
 		);
@@ -218,7 +218,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"type" => "textarea",
 		"name" => "Column 1 Description",
-		"id" => $ds_col."1_text",				
+		"id" => $cur_col."1_text",				
 		"desc" => "Why not use this space to describe your services?",
 		"std" => "" 
 		);
@@ -226,7 +226,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"type" => "text",
 		"name" => "Column 2",
-		"id" => $ds_col."2_headline",				
+		"id" => $cur_col."2_headline",				
 		"desc" => "Headline for the second column on the Home page.",
 		"std" => "Web Development" 
 		);
@@ -234,7 +234,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"type" => "textarea",
 		"name" => "Column 2 Description",
-		"id" => $ds_col."2_text",				
+		"id" => $cur_col."2_text",				
 		"desc" => "Why not use this space to describe your services?",
 		"std" => "" 
 		);
@@ -242,7 +242,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"type" => "text",
 		"name" => "Column 3",
-		"id" => $ds_col."3_headline",				
+		"id" => $cur_col."3_headline",				
 		"desc" => "Headline for the third column on the Home page.",
 		"std" => "Graphic Design" 
 		);
@@ -250,7 +250,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"type" => "textarea",
 		"name" => "Column 3 Description",
-		"id" => $ds_col."3_text",				
+		"id" => $cur_col."3_text",				
 		"desc" => "Why not use this space to describe your services?",
 		"std" => "" 
 		);
@@ -258,7 +258,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"type" => "text",
 		"name" => "Column 4",
-		"id" => $ds_col."4_headline",				
+		"id" => $cur_col."4_headline",				
 		"desc" => "Headline for the fourth column on the Home page.",
 		"std" => "Video Production" 
 		);
@@ -266,7 +266,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"type" => "textarea",
 		"name" => "Column 4 Description",
-		"id" => $ds_col."4_text",				
+		"id" => $cur_col."4_text",				
 		"desc" => "Why not use this space to describe your services?",
 		"std" => "" 
 		);
@@ -279,7 +279,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"name" => "Add these",
 		"desc" => "Choose whether to display the code below in the given locations. You can uncheck the box and let the code remain in the boxes below to preserve it.",
-		"id" => "ds_code_integration",
+		"id" => "cur_code_integration",
 		"std" => array("js_head" => "1", "js_foot" => "1", "css" => "1"),
 		"type" => "multicheck",
 		"options" => array( "js_head" => "Add JavaScript to &lt;head&gt;", "js_foot" => "Add JavaScript to &lt;footer&gt;", "css" => "Add custom CSS"),					
@@ -288,7 +288,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"name" => "Header Javascript",
 		"desc" => "Enter any Javascript you may want for the header. You MUST enter &lt;script&gt; tags",
-		"id" => "ds_header_js",
+		"id" => "cur_header_js",
 		"std" => "",
 		"type" => "textarea",
 		);
@@ -296,7 +296,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"name" => "Footer Javascript",
 		"desc" => "Enter any Javascript you may want for the footer. You MUST enter &lt;script&gt; tags",
-		"id" => "ds_footer_js",
+		"id" => "cur_footer_js",
 		"std" => "",
 		"type" => "textarea",
 		);
@@ -304,7 +304,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"name" => "Custom CSS",
 		"desc" => "Enter any custom CSS you want. You MUST NOT enter &lt;style&gt; tags",
-		"id" => "ds_custom_css",
+		"id" => "cur_custom_css",
 		"std" => "",
 		"type" => "textarea",
 		);
@@ -317,7 +317,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"name" => "Your email ID",
 		"desc" => "Enter your email ID, for use in the contact form widgets",
-		"id" => "ds_email",
+		"id" => "cur_email",
 		"std" => get_option('admin_email'),
 		"type" => "text",
 		);
@@ -325,7 +325,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"name" => "Paste your Twitter URL here",
 		"desc" => "",
-		"id" => "ds_twitter",
+		"id" => "cur_twitter",
 		"std" => '',
 		"type" => "text",
 		 );
@@ -333,7 +333,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"name" => "Paste your Facebook URL here",
 		"desc" => "",
-		"id" => "ds_facebook",
+		"id" => "cur_facebook",
 		"std" => '',
 		"type" => "text",
 		 );
@@ -341,7 +341,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"name" => "Paste your Google+ URL here",
 		"desc" => "",
-		"id" => "ds_google_plus",
+		"id" => "cur_google_plus",
 		"std" => '',
 		"type" => "text",
 		 );
@@ -349,7 +349,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"name" => "Address",
 		"desc" => "Your physical address.",
-		"id" => "ds_address",
+		"id" => "cur_address",
 		"std" => "",
 		"type" => "textarea",
 		);
@@ -357,7 +357,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"name" => "Phone Number",
 		"desc" => "Your number, if you so choose.",
-		"id" => "ds_phone",
+		"id" => "cur_phone",
 		"std" => "",
 		"type" => "text",
 		 );
@@ -365,7 +365,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"name" => "Fax Number",
 		"desc" => "Your fax number, if you have one.",
-		"id" => "ds_fax",
+		"id" => "cur_fax",
 		"std" => "",
 		"type" => "text",
 		 );
@@ -373,7 +373,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"name" => "Operating Hours",
 		"desc" => "Enter the hours that you're in your office.",
-		"id" => "ds_operating_hours",
+		"id" => "cur_operating_hours",
 		"std" => "Monday to Friday\r09h00 to 17h00 ",
 		"type" => "textarea",
 		);
@@ -381,7 +381,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"name" => "Thank You text",
 		"desc" => "What you would like to say when an email is successfully sent.",
-		"id" => "ds_thank_you",
+		"id" => "cur_thank_you",
 		"std" => "Your email was successfully sent. I will be in touch soon.",
 		"type" => "text",
 		 );
@@ -389,7 +389,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"name" => "Error text",
 		"desc" => "What you would like to say when there is an error sending an email.",
-		"id" => "ds_error",
+		"id" => "cur_error",
 		"std" => "There was an error submitting the form.",
 		"type" => "text",
 		 );
@@ -397,7 +397,7 @@ function optionsframework_options() {
 	$options[] = array(
 		"name" => "Google Map",
 		"desc" => "Paste in the Google Maps embed code here. Set custom width and height to 222px and 258px. For more information, visit <a href='http://support.google.com/maps/bin/answer.py?hl=en&answer=72644' target='_blank'>Google Support</a>.",
-		"id" => "ds_google_map",
+		"id" => "cur_google_map",
 		"std" => "",
 		"type" => "textarea",
 		 );

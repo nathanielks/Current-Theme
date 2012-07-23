@@ -2,9 +2,9 @@
 
 //Register Post Types
 
-add_action('init', 'hu_posttypes_register');
+add_action('init', 'cur_posttypes_register');
  
-function hu_posttypes_register() {
+function cur_posttypes_register() {
 	$post_types = array('Slide', 'Slider', 'Media', 'Five for Ten');
 
 	foreach( $post_types as $pt ){

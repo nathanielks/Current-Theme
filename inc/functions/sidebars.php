@@ -2,7 +2,7 @@
 //Register Sidebars
 
 // http://codex.wordpress.org/Function_Reference/register_sidebar
-function ds_register_listed_sidebars() {
+function cur_register_listed_sidebars() {
   $sidebars = array('Sidebar', 'Footer');
 
   foreach($sidebars as $sidebar) {
@@ -20,4 +20,4 @@ function ds_register_listed_sidebars() {
   }
 }
 
-add_action('widgets_init', 'ds_register_listed_sidebars');
+add_action('widgets_init', 'cur_register_listed_sidebars');

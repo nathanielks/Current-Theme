@@ -30,7 +30,7 @@ if ($wp_query->have_posts()) : while ( $wp_query->have_posts() ) : $wp_query->th
 //Query stuff goes here
 
 endwhile; 
-ds_pagination(); //Goes between endwhile and endif to work
+cur_pagination(); //Goes between endwhile and endif to work
 
 
 endif;

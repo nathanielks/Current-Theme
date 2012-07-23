@@ -1,10 +1,6 @@
 <?php
 
-function title_to_class($title){
-	return preg_replace('/[^\w\d_ -]/si', '', strtolower( str_replace( ' ', '-', $title ) ) );
-}
-
-function hu_recent_posts( $options = array() ){
+function cur_recent_posts( $options = array() ){
 
 	$defaults = array('post_type' => 'post', 'posts_per_page' => 2, 'ignore_sticky' => 0);
 	$merged = array_merge($defaults, $options);
@@ -28,7 +24,7 @@ function hu_recent_posts( $options = array() ){
 				<div id="post-<?php echo $title_class; ?>" <?php post_class($title_class.' mleft fleft recent-post'); ?>>
 					<div class="media-thumb">
 						<a href="<?php the_permalink(); ?>">
-							<?php ds_post_thumbnail('small'); ?>
+							<?php cur_post_thumbnail('small'); ?>
 							<p>
 								<span class="arrow"><img src="<?php echo DS_ASSETS; ?>img/arrow-orange.png"></span><span class="title"><?php the_title(); ?></span>
 							</p>
@@ -44,25 +40,18 @@ function hu_recent_posts( $options = array() ){
 	wp_reset_postdata();
 }
 
-function hu_excerpt_more() {
+function cur_excerpt_more() {
   return '<div class="read-more">&#8212; <a href="' . get_permalink() . '">' . __( 'Read more', 'hope' ) . '</a> &#8212;</div>';
 }
 
-add_filter('excerpt_more', 'hu_excerpt_more');
+add_filter('excerpt_more', 'cur_excerpt_more');
 
 function get_page_url($page_name){
 	return esc_url( get_permalink( get_page_by_title( $page_name ) ) );
 }
 
-function roots_attachment_link_class($html) {
-  $postid = get_the_ID();
-  $html = str_replace('<a', '<a class="thumbnail"', $html);
-  return $html;
-}
-add_filter('wp_get_attachment_link', 'roots_attachment_link_class', 10, 1);
-
 //Courtesy @pjrvsWP, http://wp-snippets.com/1896/pagination-without-plugin/
-function ds_pagination($prev = 'Prev', $next = 'Next') {
+function cur_pagination($prev = 'Prev', $next = 'Next') {
 	global $wp_query, $wp_rewrite;
 	$wp_query->query_vars['paged'] > 1 ? $current = $wp_query->query_vars['paged'] : $current = 1;
 	$pagination = array(
@@ -84,7 +73,7 @@ function ds_pagination($prev = 'Prev', $next = 'Next') {
 
 //Gets the name of the site and generates a placeholder image from placehold.it
 //Uses the same parameters as the_post_thumbnail
-function ds_post_thumbnail($size='post-thumbnail', $attr='')
+function cur_post_thumbnail($size='post-thumbnail', $attr='')
 {
 	if(!has_post_thumbnail()){
 
@@ -116,7 +105,7 @@ function addhttp($url) {
     return $url;
 }
 
-function hu_comment($comment, $args, $depth) {
+function cur_comment($comment, $args, $depth) {
 	$GLOBALS['comment'] = $comment; ?>
 	<li class="comment">
 	<p><span class="bebas comment-author"><?php  echo comment_author_link(); ?></span> <span class="meta"> on <?php comment_date('m/d/y'); ?> </span></p>
@@ -172,8 +161,8 @@ endif;
  *Courtesy Carina Javier,
  *http://wp.tutsplus.com/tutorials/customizing-and-styling-the-password-protected-form/
  */
-add_filter( 'the_password_form', 'ds_password_form' );
-function ds_password_form() {
+add_filter( 'the_password_form', 'cur_password_form' );
+function cur_password_form() {
 	global $post;
 	$label = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
 	$o = '<form class="protected-post-form" action="' . get_option('siteurl') . '/wp-pass.php" method="post">'
