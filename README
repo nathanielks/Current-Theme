@@ -21,14 +21,15 @@ assets/css/style.css. That's also what style.css imports, for reference.
 
 INC
 
-Inc is where I place all the php code that I'll be using outside of template files. It's organized
-like so: functions, lang, loops, models, plugins, and widgets. Inside functions I place any theme
-functions that I'll be using such as things that are run on theme-setup, activation, etc. It's also
-where I define all my sidebars, menus and such. Lang is the language folder. Loops is where I place
-any and all loops that I'll be using throughout the theme. Models is similar to loops in that it's
-chunks of code that I use and reuse, but it's not performing any real tasks. It's just where I
-place meta blocks or other chunks of code that are used often. Plugins is where I define
-what plugins are required for the theme to work. Thanks to Thomas Griffin's plugin activation class
-(http://tgmpluginactivation.com/), we can tell the user which plugins are required and let them
-install and activate right there. Pretty awesome. Plugins are defined in inc/plugins/plugins.php.
-Widgets is where I place all my widgets.
+Inc is where I place all the php code that I'll be using outside of template files. It's
+organized like so: functions, lang, loops, models, plugins, and widgets. Inside functions 
+I place any theme functions that I'll be using such as things that are run on theme-setup,
+activation, etc. It's also where I define all my sidebars, menus and such. Lang is the 
+language folder. Loops is where I place any and all loops that I'll be using throughout 
+the theme. Models is similar to loops in that it's chunks of code that I use and reuse, 
+but it's not performing any real tasks. It's just where I place meta blocks or other chunks 
+of code that are used often. Plugins is where I define what plugins are required for the 
+theme to work. Thanks to Thomas Griffin's plugin activation class (http://tgmpluginactivation.com/),
+we can tell the user which plugins are required and let them install and activate right there.
+Pretty awesome. Plugins are defined in inc/plugins/plugins.php. Widgets is where I place 
+all my widgets.
