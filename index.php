@@ -1,33 +1,37 @@
 <?php get_header(); ?>
 
-<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+	<div class="row-full">
 
-	<article id="post-<?php the_ID(); ?>" <?php post_class('span9 entry aligncenter'); ?>>
+		<div id="blog">
+		    <h1>Blog</h1>
+
+			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+					<a class="headline" href="<?php the_permalink(); ?>">
+		                    <h2><?php the_title(); ?></h2>
+		                </a>
+		                <div class="content">
+							<?php the_excerpt(); ?>
+						</div>
+						<?php get_template_part('inc/models/meta'); ?>
+					</div>
+				</article>
+
+			<?php endwhile; ?>
+
+				<div class="pagination">
+					<?php cur_pagination(); ?>
+				</div>
+
+			<?php endif; ?>
+		</div> <!-- /#blog -->
+
+		<?php get_sidebar('blog'); ?>
+
+	</div><!-- /.row-full -->
 
 
-		<h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h2>
-
-		<div class="entry-meta">
-			<p>Posted on <span class="time"><?php the_date(); ?></span> |  
-				<?php 
-				if ( comments_open() && ! post_password_required() ) {
-					comments_popup_link( '<span class="comments-link">' . __( '0 comments', 'designa' ) . '</span>','<span class="comments-link">'._x( '1 comment', 'comments number', 'designa' ).'</span>', '<span class="comments-link">'._x( '% comments', 'comments number', 'designa' ).'</span>' ); 
-				} else {
-					echo '<span class="comments-link">Comments are closed.</span>';
-				} 
-				?>
-			</p>
-		</div> <!-- /.entry-meta -->
-
-		<div class="entry-content">
-			<?php the_excerpt(); ?>
-		</div> <!-- /.entry-content -->
-
-	</article>
-
-	<hr>
-
-<?php endwhile; ?>
 
 
 <?php get_footer(); ?>

@@ -1,51 +1,5 @@
 <?php
 
-function cur_recent_posts( $options = array() ){
-
-	$defaults = array('post_type' => 'post', 'posts_per_page' => 2, 'ignore_sticky' => 0);
-	$merged = array_merge($defaults, $options);
-	extract($merged);
-	$args = array(
-		'post_type' => $post_type,
-		'posts_per_page' => $posts_per_page,
-		'ignore_sticky_posts' => $ignore_sticky,
-		//'order' => 'ASC',
-	);
-
-	$the_query = new WP_Query( $args );
-
-	// The Loop
-	if ( $the_query->have_posts() ) :
-		while ( $the_query->have_posts() ) : $the_query->the_post();
-
-	$title_class = title_to_class( get_the_title() );
-
-	?>
-				<div id="post-<?php echo $title_class; ?>" <?php post_class($title_class.' mleft fleft recent-post'); ?>>
-					<div class="media-thumb">
-						<a href="<?php the_permalink(); ?>">
-							<?php cur_post_thumbnail('small'); ?>
-							<p>
-								<span class="arrow"><img src="<?php echo DS_ASSETS; ?>img/arrow-orange.png"></span><span class="title"><?php the_title(); ?></span>
-							</p>
-						</a>
-					</div>
-				</div>
-<?php
-
-	endwhile;
-	endif;
-
-	// Reset Post Data
-	wp_reset_postdata();
-}
-
-function cur_excerpt_more() {
-  return '<div class="read-more">&#8212; <a href="' . get_permalink() . '">' . __( 'Read more', 'hope' ) . '</a> &#8212;</div>';
-}
-
-add_filter('excerpt_more', 'cur_excerpt_more');
-
 function get_page_url($page_name){
 	return esc_url( get_permalink( get_page_by_title( $page_name ) ) );
 }
@@ -71,30 +25,43 @@ function cur_pagination($prev = 'Prev', $next = 'Next') {
 	echo paginate_links( $pagination );
 };
 
+//Courtesy c.bavota, http://bavotasan.com/2009/limiting-the-number-of-words-in-your-excerpt-or-content-in-wordpress/
+function cur_excerpt($limit) {
+	$excerpt = explode(' ', get_the_excerpt(), $limit);
+	if (count($excerpt)>=$limit) {
+		array_pop($excerpt);
+		$excerpt = implode(" ",$excerpt).'...';
+	} else {
+		$excerpt = implode(" ",$excerpt);
+	} 
+	$excerpt = preg_replace('`\[[^\]]*\]`','',$excerpt);
+	return $excerpt;
+}
+
+
 //Gets the name of the site and generates a placeholder image from placehold.it
 //Uses the same parameters as the_post_thumbnail
-function cur_post_thumbnail($size='post-thumbnail', $attr='')
-{
+function cur_post_thumbnail($size='post-thumbnail', $attr='', $useAvatar = false) {
 	if(!has_post_thumbnail()){
 
-			$title = urlencode(get_bloginfo('name'));
-			global $_wp_additional_image_sizes;
-			$size = $_wp_additional_image_sizes[$size];
-			$default_attr = array(
-						'src'	=> '',
-						'class'	=> 'attachment',
-						'alt'	=> "$title Image", // Use Alt field first
-						'title'	=> "$title",
-					);
-			$attr = wp_parse_args($attr, $default_attr);
-			$attr = array_map( 'esc_attr', $attr);
-			echo '<img class="' . $attr['class'] . '" src="http://placehold.it/'.$size['width'].'x'.$size['height'].'/&text='.$title.'" alt="' . $attr['alt'] . '" title="' . $attr['title'] . '" />';
-			//echo '<img class="' . $attr['class'] . '" src="' . DS_ASSETS . '/img/placeholder.gif" alt="' . $attr['alt'] . '" title="' . $attr['title'] . '" />';
-			
-		}
-		else {
-			the_post_thumbnail($size, $attr);	
-		}
+		$title = urlencode(get_bloginfo('name'));
+		global $_wp_additional_image_sizes;
+		$size = $_wp_additional_image_sizes[$size];
+		$default_attr = array(
+					'src'	=> '',
+					'class'	=> 'attachment',
+					'alt'	=> "$title Image", // Use Alt field first
+					'title'	=> "$title",
+				);
+		$attr = wp_parse_args($attr, $default_attr);
+		$attr = array_map( 'esc_attr', $attr);
+		echo '<img class="' . $attr['class'] . '" src="http://placehold.it/'.$size['width'].'x'.$size['height'].'/&text='.$title.'" alt="' . $attr['alt'] . '" title="' . $attr['title'] . '" />';
+		//echo '<img class="' . $attr['class'] . '" src="' . DS_ASSETS . '/img/placeholder.gif" alt="' . $attr['alt'] . '" title="' . $attr['title'] . '" />';
+		
+	}
+	else {
+		the_post_thumbnail($size, $attr);	
+	}
 }
 
 //Courtesy Alix Axel, http://stackoverflow.com/questions/2762061/how-to-add-http-if-its-not-exists-in-the-url

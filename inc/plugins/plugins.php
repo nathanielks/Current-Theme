@@ -19,6 +19,7 @@
 /**
  * Include the TGM_Plugin_Activation class.
  */
+ 
 require_once dirname( __FILE__ ) . '/class-tgm-plugin-activation.php';
 
 add_action( 'tgmpa_register', 'current_register_required_plugins' );
@@ -39,14 +40,21 @@ function current_register_required_plugins() {
 	$plugins = array(
 
 		array(
+			'name' 		=> 'Mobble',
+			'slug' 		=> 'mobble',
+			'required' 	=> false,
+		),
+
+		array(
 			'name' 		=> 'Meta Box',
 			'slug' 		=> 'meta-box',
 			'required' 	=> true,
 		),
+
 		array(
-			'name' 		=> 'Options Framework',
-			'slug' 		=> 'options-framework',
-			'required' 	=> true,
+			'name' 		=> 'Posts 2 Posts',
+			'slug' 		=> 'posts-to-posts',
+			'required' 	=> false,
 		),
 
 	);
